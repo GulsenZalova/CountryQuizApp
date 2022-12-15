@@ -4,10 +4,16 @@ let questionContainer=document.querySelector(".questionContainer")
 fetch("https://restcountries.com/v3.1/all")
 .then(res=>res.json())
 .then(data=>{
+    let randomCountryArr=[]
     data.forEach(element => {
-        capitals.push(element.capital)
-        flags.push(element.flags.svg)
+        let randomCountryIndex=Math.floor(Math.random()*data.length)
+        let randomCountry=data.slice(randomCountryIndex,randomCountryIndex+1)
+      if(randomCountryArr.length<5){
+        randomCountryArr.push(randomCountry)
+      }
     });
+    chooseQuestions(randomCountryArr)
+    // console.log(randomCountryArr)
     // console.log(capitals)
     // console.log(flags)
     let randomCapitalIndex=Math.floor(Math.random()*capitals.length)
@@ -34,21 +40,39 @@ fetch("https://restcountries.com/v3.1/all")
 })
 
 
+
+
+
+function chooseQuestions(randomCountryArr){
+    let randomCountryForQuestionIndex=Math.floor(Math.random()*randomCountryArr.length)
+    let randomCountryForQuestion=randomCountryArr.slice(randomCountryForQuestionIndex,randomCountryForQuestionIndex+1)
+    let randomCapital=randomCountryForQuestion[0][0].capital[0]
+    let randomFlag=randomCountryForQuestion[0][0].flags.svg
+    let questions=[randomFlag,randomCapital]
+    let randomQuestionİndex=Math.floor(Math.random() * 2)
+    createQuestion(questions[randomQuestionİndex],randomQuestionİndex)
+}
+
+
+
 function createQuestion(randomQuestion,randomQuestionİndex){
     let questionText
+    let capital=randomQuestion
    if(randomQuestionİndex==1){
+    console.log(capital)
     questionText+=`
     <div class="capitalQuestion">
-    <p><span>${randomQuestion[0]}</span> hansı ölkənin paytaxtıdır?</p>
+    <p>${randomQuestion} hansı ölkənin paytaxtıdır?</p>
 </div>
     `
+    questionContainer.innerHTML=questionText
    }else if(randomQuestionİndex==0){
     questionText+=`
     <div class="flagQuestion">
-            <img src="${randomQuestion[0]}" alt="">
+            <img src="${randomQuestion}" alt="">
             <p> Şəkildəki hansı ölkənin bayrağıdır?</p>
         </div>
     `
+    questionContainer.innerHTML=questionText
    }
-   questionContainer.innerHTML=questionText
 }
