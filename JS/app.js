@@ -20,7 +20,9 @@ function chooseQuestions(data){
         let randomCountryIndex=Math.floor(Math.random()*data.length)
         let randomCountry=data.slice(randomCountryIndex,randomCountryIndex+1)
       if(randomCountryArr.length<4){
-        randomCountryArr.push(randomCountry)
+        if(!randomCountryArr.includes(randomCountry)){
+            randomCountryArr.push(randomCountry)
+        }
       }
     });
     let randomCountryForQuestionIndex=Math.floor(Math.random()*randomCountryArr.length)
@@ -34,6 +36,7 @@ function chooseQuestions(data){
 
 function createQuestion(randomQuestion,randomQuestionİndex,randomCountryArr,randomCountryForQuestion){
     // console.log(randomCountryForQuestion)
+    // console.log(randomCountryArr)
     let questionText
    if(randomQuestionİndex==1){
     let capital=randomQuestion
