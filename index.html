@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- CSS Link -->
     <link rel="stylesheet" href="./CSS/style.css">
-    <title>Country Quiz appt</title>
+    <!-- Font Awsome Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Country Quiz App</title>
 </head>
 <body>
    <div class="container">
-     <div class="quiz-container ">
+     <div class="quiz-container show">
         <div class="heading">
             <h1>COUNTRY QUIZ</h1>
         </div>
@@ -20,13 +22,13 @@
                 <span>is the capital of ?</span>
             </div>
             <div class="quiz-answers">
-                <ul class="answers-list">
+                <!-- <ul class="answers-list">
                     <li class="answer correct">
-                    <span class="variant">A</span> Isle of Man</li>
-                    <li class="answer uncorrect"><span class="variant">B</span> Namibia</li>
-                    <li class="answer"><span class="variant">C</span> Aruba</li>
-                    <li class="answer"><span class="variant">D</span> Romania</li>
-                </ul>
+                    <span class="variant">A</span><span class="variant-text"> Isle of Man</span></li>
+                    <li class="answer uncorrect"><span class="variant">B</span><span class="variant-text"> Isle of Man</span></li>
+                    <li class="answer"><span class="variant">C</span><span class="variant-text"> Aruba</span></li>
+                    <li class="answer"><span class="variant">D</span><span class="variant-text"> Romania</span></li>
+                </ul> -->
             </div>
         </div>
         <div class="quiz-image">
@@ -34,21 +36,16 @@
          </div>
      </div>
 
-     <div class="result-container show">
+     <div class="result-container">
         <div class="result-area">
-            <div class="quiz-question">
-                <span class="question">Baku</span>
-                <span>is the capital of ?</span>
+            <div class="result-image">
+                <img src="./Image/undraw_winners_ao2o 2 (1).svg" alt="">
             </div>
-            <div class="quiz-answers">
-                <ul class="answers-list">
-                    <li class="answer correct">
-                    <span class="variant">A</span> Isle of Man</li>
-                    <li class="answer uncorrect"><span class="variant">B</span> Namibia</li>
-                    <li class="answer"><span class="variant">C</span> Aruba</li>
-                    <li class="answer"><span class="variant">D</span> Romania</li>
-                </ul>
+            <div class="result-info">
+                <h1>Result</h1>
+                <p>You got   <span class="result-text">0</span>   correct answers</p>
             </div>
+            <button class="again-btn">Try Again</button>
         </div>
      </div>
 
